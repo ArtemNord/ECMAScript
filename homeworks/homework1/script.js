@@ -26,3 +26,27 @@ console.log(count.increment());
 console.log(count.increment());
 console.log(count.increment());
 console.log(count.decrement());
+
+// 3) Напишите рекурсивную функцию findElementByClass,
+// которая принимает корневой элемент дерева DOM и название класса в качестве аргументов
+// и возвращает первый найденный элемент с указанным классом в этом дереве.
+
+const task3 = () => {
+  const findElementByClass = (rootElement, searchedClass) => {
+    if (rootElement.hasChildNodes()) {
+      if (rootElement.querySelector(searchedClass)) {
+        return rootElement.querySelector(searchedClass);
+      } else {
+        [...rootElement.children].forEach((element) =>
+          findElementByClass(element, searchedClass)
+        );
+      }
+      return null;
+    }
+  };
+  console.log(
+    findElementByClass(document.querySelector("body"), ".twoPointTwo")
+  );
+};
+
+task3();
