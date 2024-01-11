@@ -33,20 +33,17 @@ console.log(count.decrement());
 
 const task3 = () => {
   const findElementByClass = (rootElement, searchedClass) => {
-    if (rootElement.hasChildNodes()) {
-      if (rootElement.querySelector(searchedClass)) {
-        return rootElement.querySelector(searchedClass);
-      } else {
-        [...rootElement.children].forEach((element) =>
-          findElementByClass(element, searchedClass)
-        );
+      if (rootElement.hasChildNodes()) {
+          if (rootElement.querySelector(searchedClass)) {
+              return rootElement.querySelector(searchedClass);
+          } else {
+
+              [...rootElement.children].forEach((element) => findElementByClass(element, searchedClass));
+          }
+          return null;
       }
-      return null;
-    }
-  };
-  console.log(
-    findElementByClass(document.querySelector("body"), ".twoPointTwo")
-  );
-};
+  }
+  console.log(findElementByClass(document.querySelector('body'), '.twoPointTwo'));
+}
 
 task3();
