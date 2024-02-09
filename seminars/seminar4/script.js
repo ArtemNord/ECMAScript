@@ -1,5 +1,4 @@
 const url = "https://www.boredapi.com/api/activity/";
-
 const btnEl = document.querySelector(".button");
 
 btnEl.addEventListener("click", () => {
